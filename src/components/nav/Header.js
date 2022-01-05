@@ -43,12 +43,15 @@ const Header = () => {
 
 <div style={{display: 'flex', paddingTop:'15px'}}>
     <Link style={{'flex':1,'margin-left':'15px','color':'red','font-weight':'bold','font-size':'1.5rem'}} to="/">
-      ElectroBoom
+      ElectroBoom 
     </Link>
+    <pre>{JSON.stringify(user,null," ")}</pre>
+    <Menu style={{display: 'flex',flex:3, justifyContent: 'space-between'}} onClick={handleClick} selectedKeys={[current]} mode="inline">
 
-    <Menu style={{display: 'flex',flex:3, justifyContent: 'space-between'}} onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+      <Item icon={<LogoutOutlined />} onClick={logout}>
+            Logout
+      </Item>
 
- 
        <Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
       </Item>
@@ -69,18 +72,18 @@ const Header = () => {
         <Search />
       </span>
 
-      {/* {!user && ( */}
+      {!user && (
         <Item key="register" icon={<UserAddOutlined />} className="float-right">
           <Link to="/register">Register</Link>
         </Item>
-      {/* )} */}
+      )}
 
-      {/* {!user && ( */}
+      {!user && (
         <Item key="login" icon={<UserOutlined />} className="float-right">
           <Link to="/login">Login</Link>
         </Item>
-      {/* )} */}
-
+      )}
+      
       {user && (
         <SubMenu
           icon={<SettingOutlined />}
@@ -100,9 +103,6 @@ const Header = () => {
           )}
         </SubMenu>
       )}
-      <Item icon={<LogoutOutlined />} onClick={logout}>
-            Logout
-      </Item>
     </Menu>
 
   </div>
