@@ -42,11 +42,11 @@ const Header = () => {
   return (
 
 <div style={{display: 'flex', paddingTop:'15px'}}>
-    <Link style={{'flex':1,'margin-left':'15px','color':'red','font-weight':'bold','font-size':'1.5rem'}} to="/">
+    <Link style={{'margin-left':'15px','color':'red','font-weight':'bold','font-size':'1.5rem'}} to="/">
       ElectroBoom 
     </Link>
     {/* <pre>{JSON.stringify(user,null," ")}</pre> */}
-    <Menu style={{display: 'flex',flex:3, justifyContent: 'space-between'}} onClick={handleClick} mode="horizontal">
+    <Menu style={{display: 'flex', justifyContent: 'space-between'}} onClick={handleClick} mode="horizontal">
 
        <Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
