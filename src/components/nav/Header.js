@@ -69,17 +69,17 @@ const Header = () => {
         <Search />
       </span>
 
-      {!user && (
+      {/* {!user && ( */}
         <Item key="register" icon={<UserAddOutlined />} className="float-right">
           <Link to="/register">Register</Link>
         </Item>
-      )}
+      {/* )} */}
 
-      {!user && (
+      {/* {!user && ( */}
         <Item key="login" icon={<UserOutlined />} className="float-right">
           <Link to="/login">Login</Link>
         </Item>
-      )}
+      {/* )} */}
 
       {user && (
         <SubMenu
@@ -98,12 +98,11 @@ const Header = () => {
               <Link to="/admin/dashboard">Dashboard</Link>
             </Item>
           )}
-
-          <Item icon={<LogoutOutlined />} onClick={logout}>
-            Logout
-          </Item>
         </SubMenu>
       )}
+      <Item icon={<LogoutOutlined />} onClick={logout}>
+            Logout
+      </Item>
     </Menu>
 
   </div>
