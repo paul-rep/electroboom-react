@@ -45,12 +45,8 @@ const Header = () => {
     <Link style={{'flex':1,'margin-left':'15px','color':'red','font-weight':'bold','font-size':'1.5rem'}} to="/">
       ElectroBoom 
     </Link>
-    <pre>{JSON.stringify(user,null," ")}</pre>
-    <Menu style={{display: 'flex',flex:3, justifyContent: 'space-between'}} onClick={handleClick} selectedKeys={[current]} mode="inline">
-
-      <Item icon={<LogoutOutlined />} onClick={logout}>
-            Logout
-      </Item>
+    {/* <pre>{JSON.stringify(user,null," ")}</pre> */}
+    <Menu style={{display: 'flex',flex:3, justifyContent: 'space-between'}} onClick={handleClick} mode="horizontal">
 
        <Item key="home" icon={<AppstoreOutlined />}>
         <Link to="/">Home</Link>
@@ -101,6 +97,12 @@ const Header = () => {
               <Link to="/admin/dashboard">Dashboard</Link>
             </Item>
           )}
+
+
+          <Item icon={<LogoutOutlined />} onClick={logout}>
+                Logout
+          </Item>
+
         </SubMenu>
       )}
     </Menu>
