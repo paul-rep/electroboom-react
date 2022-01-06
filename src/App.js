@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { currentUser } from "./functions/auth";
 import { LoadingOutlined } from "@ant-design/icons";
+import Footer from "./components/footer";
 
 // import Login from "./pages/auth/Login";
 // import Register from "./pages/auth/Register";
@@ -108,53 +109,59 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense
-      fallback={
-        <div className="col text-center p-5">
-          __ React Redux EC
-          <LoadingOutlined />
-          MMERCE __
-        </div>
-      }
-    >
-      <Header />
-      <SideDrawer />
-      <ToastContainer />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/register/complete" component={RegisterComplete} />
-        <Route exact path="/forgot/password" component={ForgotPassword} />
-        <UserRoute exact path="/user/history" component={History} />
-        <UserRoute exact path="/user/password" component={Password} />
-        <UserRoute exact path="/user/wishlist" component={Wishlist} />
-        <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
-        <AdminRoute exact path="/admin/category" component={CategoryCreate} />
-        <AdminRoute
-          exact
-          path="/admin/category/:slug"
-          component={CategoryUpdate}
-        />
-        <AdminRoute exact path="/admin/sub" component={SubCreate} />
-        <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate} />
-        <AdminRoute exact path="/admin/product" component={ProductCreate} />
-        <AdminRoute exact path="/admin/products" component={AllProducts} />
-        <AdminRoute
-          exact
-          path="/admin/product/:slug"
-          component={ProductUpdate}
-        />
-        <Route exact path="/product/:slug" component={Product} />
-        <Route exact path="/category/:slug" component={CategoryHome} />
-        <Route exact path="/sub/:slug" component={SubHome} />
-        <Route exact path="/shop" component={Shop} />
-        <Route exact path="/cart" component={Cart} />
-        <UserRoute exact path="/checkout" component={Checkout} />
-        <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
-        <UserRoute exact path="/payment" component={Payment} />
-      </Switch>
-    </Suspense>
+    <div style={{height:'100%',display:'flex',flexDirection:'column'}}>
+      <div style={{flex:1}}>
+      <Suspense
+        fallback={
+          <div className="col text-center p-5">
+            __ React Redux EC
+            <LoadingOutlined />
+            MMERCE __
+          </div>
+        }
+      >
+        <Header />
+        <SideDrawer />
+        <ToastContainer />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/register/complete" component={RegisterComplete} />
+          <Route exact path="/forgot/password" component={ForgotPassword} />
+          <UserRoute exact path="/user/history" component={History} />
+          <UserRoute exact path="/user/password" component={Password} />
+          <UserRoute exact path="/user/wishlist" component={Wishlist} />
+          <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+          <AdminRoute exact path="/admin/category" component={CategoryCreate} />
+          <AdminRoute
+            exact
+            path="/admin/category/:slug"
+            component={CategoryUpdate}
+          />
+          <AdminRoute exact path="/admin/sub" component={SubCreate} />
+          <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate} />
+          <AdminRoute exact path="/admin/product" component={ProductCreate} />
+          <AdminRoute exact path="/admin/products" component={AllProducts} />
+          <AdminRoute
+            exact
+            path="/admin/product/:slug"
+            component={ProductUpdate}
+          />
+          <Route exact path="/product/:slug" component={Product} />
+          <Route exact path="/category/:slug" component={CategoryHome} />
+          <Route exact path="/sub/:slug" component={SubHome} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/cart" component={Cart} />
+          <UserRoute exact path="/checkout" component={Checkout} />
+          <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
+          <UserRoute exact path="/payment" component={Payment} />
+        </Switch>
+      </Suspense>
+      </div>
+
+      <Footer></Footer>
+    </div>
   );
 };
 

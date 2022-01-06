@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { getCategories } from "../../functions/category";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     setLoading(true);
@@ -17,6 +18,7 @@ const CategoryList = () => {
   const showCategories = () =>
     categories.map((c) => (
       <div
+        onClick={()=> history.push(`/category/${c.slug}`)}
         key={c._id}
         className="col btn btn-outlined-primary btn-lg btn-block btn-raised m-3"
       >

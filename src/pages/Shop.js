@@ -97,13 +97,16 @@ const Shop = () => {
 
 
   // debounce price slider calls
-  useDebounce(price,200,()=> fetchProducts({ ...filters, price }));
+  useDebounce(price,200,()=> { 
+    console.log("in debaunce");
+    fetchProducts({ ...filters, price });
+  });
 
   const handleSlider = (value) => {
-
+    // console.log(value);
     setPrice(value);
     setFilters(prevFilters => ({...prevFilters, price: value}));
-    fetchProducts({ ...filters, price: value });
+    // fetchProducts({ ...filters, price: value });
   };
 
   // 4. load products based on category
@@ -289,8 +292,6 @@ const Shop = () => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-3 pt-2">
-          {/* <h4>Search/Filter</h4> */}
-          {/* <pre>{JSON.stringify(filters,null," ")}</pre> */}
           <Button type="default" style={{marginLeft:'20px'}} onClick={resetFilters}>Reset all filters <ClearOutlined /></Button>
 
           <Menu
@@ -400,10 +401,8 @@ const Shop = () => {
         </div>
 
         <div className="col-md-9 pt-2">
-          {loading ? (
+          {loading && (
             <h4 className="text-danger">Loading...</h4>
-          ) : (
-            <h4 className="text-danger">Products</h4>
           )}
 
           {products.length < 1 && <p>No products found</p>}
